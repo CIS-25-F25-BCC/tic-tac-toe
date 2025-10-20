@@ -81,6 +81,12 @@ bool TicTacToe::makeMove(int row, int col) {
 
     }
 
+    // Undo feature: save previous state
+
+    previousBoard = board;
+
+    previousPlayer = currentPlayer;
+
     board[row][col] = currentPlayer;
 
     moveCount++;
