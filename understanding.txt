@@ -1,0 +1,24 @@
+Understanding the Code
+
+1. What does getCell(int row, int col) return if you pass invalid coordinates like (-1, 5)?
+
+	The getCell function will return the '\0' char
+
+2. What does getWinner() return when there's no winner yet?
+
+	The getWinner() function will return a space char ' '
+
+3. Explain why getWinner() is marked const but makeMove() is not.
+
+	getWinner() is const because it does not change any data / it has no side-effects.
+	makeMove() is not const because it changes board, moveCount, & currentPlayer variables
+
+4. If the board is full but nobody has won, what should isGameOver() return?
+
+	isGameOver() should return true, false || true == true
+
+5. What value does getCurrentPlayer() return at the start of a new game?
+
+	The TicTacToe constructor sets currentPlayer to 'X', 
+	so getCurrentPlayer() should return char 'X' at the start of a new game
+	
