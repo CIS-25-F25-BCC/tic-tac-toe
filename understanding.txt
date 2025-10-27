@@ -1,0 +1,16 @@
+Par2
+
+1.It will return '\0' when (x<0 || x>=3 || y<0 || y >=3)
+and because tictactoe has 3x3 so if x or o move out of that
+it will return '\0'
+
+2.getWinner() will return nothing when there is no winner
+because there is no display function for that.
+
+3.getWinner() is marked const but makeMove() is not
+because const will keep variable x or o can't be change to qualify to get winner
+but makeMove() need to change direction so it can't keep variable
+
+4.isGameOver() will return nothing if pass by getWinner() and return 9 if pass by isFull().
+
+5. getCurrentPlayer() return X at the start of the game.
