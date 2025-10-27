@@ -7,10 +7,10 @@
 void test_initial_state() {
     // TODO: Students implement this
 TicTacToe game;
-	if (getCurrentPlayer() == 'X' &&
-		game.moveCount == 0 &&
-		getCell(row, col) == '\0' &&
-		getWinner() == 'X' || game.getWinner() == 'O') {
+	if (game.getCurrentPlayer() == 'X' &&
+		game.getMoveCount() == 0 &&
+		game.getCell('\0', '\0') &&
+		game.getWinner() == 'X' || game.getWinner() == 'O') {
     std::cout << "✓ Initial state test passed\n";}
 }
 
@@ -19,10 +19,9 @@ void test_valid_move() {
 TicTacToe game;
 game.makeMove(0, 0);
 
-    if (assert(game.getCell(0, 0) == 'X') &&
-        assert(game.getCurrentPlayer() == 'O') &&
-        assert(game.getMoveCount() == 1)) {
-
+    if (game.getCell(0, 0) == 'X' &&
+        game.getCurrentPlayer() == 'O' &&
+        game.getMoveCount() == 1) {
     std::cout << "✓ Valid move test passed\n";}
 
 }
@@ -59,8 +58,8 @@ game.makeMove(0, 1);
 game.makeMove(2, 2);
 game.makeMove(0, 2);
 
-if (getWinner() == 'X' &&
-	isGameover() == true &&){
+if (game.getWinner() == 'X' &&
+	game.isGameOver() == true){
     std::cout << "✓ Winner detection (row) test passed\n";}
 }
 
@@ -74,8 +73,8 @@ game.makeMove(1, 1);
 game.makeMove(2, 2);
 game.makeMove(1, 2);
 
-if (getWinner() == 'O' &&
-	isGameover() == true){
+if (game.getWinner() == 'O' &&
+	game.isGameOver() == true){
     std::cout << "✓ Winner detection (column) test passed\n";}
 }
 
@@ -89,7 +88,7 @@ game.makeMove(0, 1);
 game.makeMove(2, 2);
 game.makeMove(1, 2);
 
-if (getWinner() == 'X'){
+if (game.getWinner() == 'X'){
     std::cout << "✓ Winner detection (diagonal) test passed\n";}
 }
 
@@ -106,9 +105,9 @@ game.makeMove(1, 2);
 game.makeMove(2, 2);
 game.makeMove(2, 1);
 
-if (getWinner() == ' ' &&
-    isGameover() == true &&
-	isFull() == true){
+if (game.getWinner() == ' ' &&
+    game.isGameOver() == true &&
+	game.isFull() == true){
     std::cout << "✓ Full board no winner test passed\n";}
 }
 
