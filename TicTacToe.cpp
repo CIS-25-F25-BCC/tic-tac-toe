@@ -68,26 +68,33 @@ int TicTacToe::getMoveCount() const {
 }
 
 bool TicTacToe::makeMove(int row, int col) {
-    // Validate move
+
     if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+
         return false;
-    }
-    if (board[row][col] != ' ') {
-        return false;
-    }
-    if (isGameOver()) {
-        return false;
+
     }
 
-    // Make the move
+    if (board[row][col] != ' ') {
+
+        return false;
+
+    }
+
     board[row][col] = currentPlayer;
+
     moveCount++;
 
-    // Switch players
+    // AI feature: track move history
+
+    moveHistory.push_back({row, col, currentPlayer});
+
     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
 
     return true;
+
 }
+
 
 void TicTacToe::reset() {
     for (int i = 0; i < 3; i++) {
