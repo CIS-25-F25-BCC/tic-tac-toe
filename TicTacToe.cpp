@@ -68,31 +68,24 @@ int TicTacToe::getMoveCount() const {
 }
 
 bool TicTacToe::makeMove(int row, int col) {
-
+    // Validate position
     if (row < 0 || row >= 3 || col < 0 || col >= 3) {
-
         return false;
-
     }
 
+    // Check if cell is empty
     if (board[row][col] != ' ') {
-
         return false;
-
     }
 
+    // Make the move (mutates internal state!)
     board[row][col] = currentPlayer;
-
     moveCount++;
 
-    // AI feature: track move history
-
-    moveHistory.push_back({row, col, currentPlayer});
-
+    // Switch players
     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
 
     return true;
-
 }
 
 
